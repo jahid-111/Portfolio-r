@@ -4,9 +4,8 @@ import Navigation from "./components/header/Navigation";
 const Layout = () => {
   return (
     <div>
-      <div>
-        <Navigation />
-      </div>
+      <Navigation />
+
       <Outlet />
     </div>
   );
