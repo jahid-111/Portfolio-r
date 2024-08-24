@@ -7,7 +7,7 @@ const IntroCard = () => {
     <div className=" px-2 mt-20 flex flex-col justify-start items-start">
       <div>
         <div>
-          <h6 className=" text-2xl my-2  font-semibold">
+          <h6 className=" text-2xl my-2 md:text-[2rem] font-semibold">
             {"Hey there!, I'm-"}
           </h6>
           <h1 className=" mb-2 text-5xl xl:text-[6rem] text-wrap font-semibold">
@@ -26,7 +26,7 @@ const IntroCard = () => {
 
         <div className=" my-6 text-sm md:text-xl">
           <p>🚀 Currently specializing in Frontend (React)</p>
-          <p>🚀 Frontend Engineer at GGL </p>
+          {/* <p>🚀 Frontend Engineer at GGL </p> */}
         </div>
       </div>
 
