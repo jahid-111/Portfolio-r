@@ -8,7 +8,7 @@ const Navigation = () => {
 
   return (
     <div
-      className={`h-16 p-2 relative flex   justify-between items-center bg-slate-800`}
+      className={`h-16 p-2 relative flex justify-between items-center bg-slate-800`}
     >
       <div>
         <h3

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const IntroCard = () => {
   return (
-    <div className=" px-2 mt-20 flex flex-col justify-start items-start">
+    <div className=" px-2 mt-20 flex flex-col justify-start items-start ">
       <div>
         <div>
           <h6 className=" text-2xl my-2 md:text-[2rem] font-semibold">
@@ -14,7 +14,7 @@ const IntroCard = () => {
             Mohd. Jahidul Islam
           </h1>
 
-          <h4 className="text-xl my-5  text-justify md:text-[1.7rem] leading-relaxed">
+          <h4 className="text-xl my-5 tracking-tight  md:text-[1.7rem] leading-relaxed">
             <span className="font-semibold">Frontend Developer. </span>
             <span className="text-gray-400">
               - A self-taught developer with an
