@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const IntroCard = () => {
   return (
-    <div className=" px-2 mt-20 flex flex-col justify-start items-start ">
+    <div className=" sm:my-24 flex flex-col justify-start items-start ">
       <div>
         <div>
           <h6 className=" text-2xl my-2 md:text-[2rem] font-semibold">
@@ -32,7 +32,7 @@ const IntroCard = () => {
 
       <div className="my-5  flex flex-wrap justify-start items-center gap-2">
         <Link
-          className="hover:bg-gray-500 rounded-md py-1 px-3 flex justify-start items-center"
+          className=" button-primary color  rounded-md py-1 px-3 flex justify-start items-center"
           to={""}
         >
           <FaGithub className="me-2" />
@@ -40,14 +40,14 @@ const IntroCard = () => {
         </Link>
 
         <Link
-          className="hover:bg-gray-500 rounded-md py-1 px-3 flex items-center"
+          className=" button-primary color rounded-md py-1 px-3 flex items-center"
           to={""}
         >
           <FaLinkedin className="me-2" />
           Linkedin
         </Link>
         <Link
-          className="hover:bg-gray-500 rounded-md py-1 px-3 flex items-center"
+          className=" button-primary color rounded-md py-1 px-3 flex items-center"
           to={""}
         >
           <IoMail className="me-2" />

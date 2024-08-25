@@ -7,16 +7,14 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div
-      className={`h-16 p-2 relative flex justify-between items-center bg-slate-800`}
-    >
+    <div className={`h-16 p-2 relative flex justify-between items-center`}>
       <div>
-        <h3
+        <h6
           className=" h-14 w-14 
         "
         >
           Image Brand
-        </h3>
+        </h6>
       </div>
 
       <button
@@ -38,19 +36,19 @@ const Navigation = () => {
         } md:flex md:justify-around md:gap-5 md:w-auto  md:h-auto text-center md:static`}
       >
         <Link
-          className=" px-4 py-2 md:px-none w-full border md:border-none hover:text-gray-400 text-white text-center"
+          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
           to={`/home`}
         >
           Home
         </Link>
         <Link
-          className=" px-4 py-2 md:px-none w-full border md:border-none hover:text-gray-400 text-white text-center"
+          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
           to={`/project`}
         >
           Projects
         </Link>
         <Link
-          className=" px-4 py-2 md:px-none w-full border md:border-none hover:text-gray-400 text-white text-center"
+          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
           to={`/contacts`}
         >
           Contact

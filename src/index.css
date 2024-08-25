@@ -3,5 +3,51 @@
 @tailwind utilities;
 
 body {
+  background-color: #11110e;
+  color: #faf9f6;
   font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  color: #f4dc85;
+}
+
+a {
+  color: #000000;
+}
+
+.button-primary {
+  background-color: #50492f;
+  color: #ffffff;
+}
+.button-primary:hover {
+  background-color: #d2b960;
+  color: #202018;
+}
+
+.button-secondary {
+  background-color: #f5c300;
+  color: #ffffff;
+}
+
+.card {
+  background-color: #ffdb58;
+  border: 1px solid #333333;
+  color: #111111;
+}
+
+.text-accent {
+  color: #ffd700;
+}
+
+.footer {
+  background-color: #ffbf00;
+  color: #faf9f6;
+}
+
+.navbar {
+  background-color: #f4c430;
+  color: #111111;
 }
