@@ -4,7 +4,7 @@ import SkillOn from "../components/SkillOn";
 
 const Home = () => {
   return (
-    <div className=" px-2">
+    <div className=" px-2  mt-28 md:mt-36">
       <IntroCard />
       <AboutMe />
       <SkillOn />

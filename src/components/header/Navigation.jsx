@@ -7,54 +7,55 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className={`h-16 p-2 relative flex justify-between items-center`}>
-      <div>
-        <h6
-          className=" h-14 w-14 
-        "
-        >
-          Image Brand
-        </h6>
+    <div className="relative">
+      {/* Backdrop Blur Overlay */}
+      {openMenu && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
+      )}
+
+      <div className="fixed top-0 left-0 w-full h-16 bg-gray-800 px-2 md:px-24 z-50">
+        <div className="h-full flex justify-between items-center">
+          <h6 className="text-white text-xl font-bold">Image Brand</h6>
+
+          <button
+            onClick={() => setOpenMenu((prevState) => !prevState)}
+            className="md:hidden text-white"
+          >
+            {openMenu ? (
+              <HiMiniXMark className="h-8 w-8" />
+            ) : (
+              <IoReorderThree className="h-8 w-8" />
+            )}
+          </button>
+
+          <nav
+            className={`${
+              openMenu
+                ? "absolute top-16 right-0 w-3/5 md:w-auto h-screen z-30 bg-gray-800 text-white flex flex-col items-center gap-3 p-4 rounded-tl-md rounded-bl-md"
+                : "hidden"
+            } md:flex md:flex-row md:items-center md:gap-5 md:w-auto md:h-auto md:bg-transparent md:relative`}
+          >
+            <Link
+              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
+              to={`/home`}
+            >
+              Home
+            </Link>
+            <Link
+              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
+              to={`/project`}
+            >
+              Projects
+            </Link>
+            <Link
+              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
+              to={`/contacts`}
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
       </div>
-
-      <button
-        onClick={() => setOpenMenu((prvState) => !prvState)}
-        className=" absolute top-0 right-0 md:hidden"
-      >
-        {openMenu ? (
-          <HiMiniXMark className=" h-14 w-14" />
-        ) : (
-          <IoReorderThree className=" h-14 w-14" />
-        )}
-      </button>
-
-      <nav
-        className={`${
-          openMenu
-            ? "absolute flex justify-center items-start flex-col gap-3 p-2 rounded-tl-md rounded-bl-md bg-black top-16 right-0 w-6/12 h-screen"
-            : "hidden"
-        } md:flex md:justify-around md:gap-5 md:w-auto  md:h-auto text-center md:static`}
-      >
-        <Link
-          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-          to={`/home`}
-        >
-          Home
-        </Link>
-        <Link
-          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-          to={`/project`}
-        >
-          Projects
-        </Link>
-        <Link
-          className=" px-4 py-2 md:px-none w-full border sm:border-none rounded-md  hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-          to={`/contacts`}
-        >
-          Contact
-        </Link>
-        <div></div>
-      </nav>
     </div>
   );
 };
