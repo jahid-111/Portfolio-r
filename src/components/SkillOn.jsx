@@ -8,8 +8,8 @@ const SkillOn = () => {
         <h3 className="">{"SKILL'S"}</h3>
       </div>
 
-      <div className=" flex flex-wrap justify-center  items-center gap-3 md:gap-10 w-full  ">
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+      <div className=" flex flex-wrap justify-center items-center gap-4 md:gap-10 w-full  ">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20"
             aria-hidden="true"
@@ -24,7 +24,7 @@ const SkillOn = () => {
 
           <p>HTML</p>
         </div>
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20"
             aria-hidden="true"
@@ -39,7 +39,7 @@ const SkillOn = () => {
 
           <p>CSS</p>
         </div>
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -53,7 +53,7 @@ const SkillOn = () => {
           </svg>
           <p>JavaScript</p>
         </div>
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -67,7 +67,7 @@ const SkillOn = () => {
           </svg>
           <p>Tailwind</p>
         </div>
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20 text-gray-800 dark:text-white"
             xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const SkillOn = () => {
           </svg>
           <p>Bootstrap</p>
         </div>
-        <div className=" flex h-48 w-48 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
+        <div className=" flex h-44 w-44 bg-slate-900 hover:bg-slate-800 cursor-pointer rounded-sm  flex-col justify-center items-center">
           <svg
             className="h-20 w-20 text-gray-800 dark:text-white"
             xmlns="http://www.w3.org/2000/svg"
