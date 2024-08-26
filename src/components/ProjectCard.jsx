@@ -1,29 +1,26 @@
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
+import PageIntro from "./PageIntro";
+import useData from "../hooks/useData";
 
 const image =
   "https://media.dev.to/cdn-cgi/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwhh1lpihw7h587pb2iuc.png";
 const ProjectCard = () => {
-  const arr = ["index", "one", "two", "Three"];
+  // const arr = ["index", "one", "two", "Three"];
+  const data = useData();
+  // console.log("data", data?.data?.projects);
   return (
     <div className=" px-4 mb-20">
-      <div className="  text-start">
-        <h1 className=" text-5xl mb-4  font-semibold my-10">Projects</h1>
-        <p className="my-4">
-          {
-            "I love building projects and practice my ReactJs skills, here's an archive of things that I've worked on."
-          }
-        </p>
-      </div>
+      <PageIntro />
 
       <div className=" my-14  md:px-0">
         <SearchInput />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-7 mx-auto justify-center items-center">
-        {arr.map((c, i) => (
+        {data?.data?.projects?.map((project) => (
           <div
-            key={i}
+            key={project.id}
             className="max-w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
@@ -35,16 +32,23 @@ const ProjectCard = () => {
                 <div>
                   <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      Title
+                      {project?.title}
                     </h5>
                   </a>
-                  <Link
-                    to={""}
-                    className=" mb-2 button-primary p-2 rounded-md "
-                  >
-                    {/* Variant Color */}
-                    React, js, Tailwind
-                  </Link>
+
+                  <div className="  w-full ">
+                    {project?.technologies?.map((technology, index) => (
+                      <div key={index} className="mt-3 me-2 inline-block ">
+                        <Link
+                          key={index}
+                          to="#"
+                          className="text-wrap rounded-md button-primary p-1 sm:-2 "
+                        >
+                          {technology}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div>
                   {" "}
@@ -113,8 +117,7 @@ const ProjectCard = () => {
               </div>
 
               <p className=" font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
+                {project?.description}
               </p>
             </div>
           </div>
