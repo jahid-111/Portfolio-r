@@ -2,7 +2,7 @@ import LinkContact from "./LinkContact";
 
 const IntroCard = () => {
   return (
-    <div className=" sm:my-24 flex flex-col justify-start items-start ">
+    <div className=" xl:h-screen xl:mt-20 mb-20 mx-auto flex flex-col gap-4 xl:-mb-24 justify-start items-start ">
       <div>
         <div>
           <h6 className=" text-2xl my-2 md:text-[2rem] font-semibold">

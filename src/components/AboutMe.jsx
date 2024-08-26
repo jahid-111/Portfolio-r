@@ -1,6 +1,6 @@
 const AboutMe = () => {
   return (
-    <div className=" flex my-14 flex-col justify-around items-center gap-5 md:flex-row mx-auto">
+    <div className=" flex  flex-col py-4 px-1 justify-around items-center gap-5 md:flex-row mx-auto">
       <div className="w-full md:w-6/12">
         <h4 className=" text-3xl font-semibold">⚡ About Me</h4>
         <div className=" text-justify leading-relaxed tracking-tighter ">
