@@ -28,7 +28,7 @@ const IntroCard = () => {
         </div>
       </div>
 
-      <LinkContact></LinkContact>
+      <LinkContact />
     </div>
   );
 };

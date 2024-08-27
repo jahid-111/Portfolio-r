@@ -5,21 +5,24 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const routesName = ["Home", "Projects", "Blogs", "Contacts"];
 
   return (
-    <div className="relative ">
+    <div className="relative">
       {/* Backdrop Blur Overlay */}
       {openMenu && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
       )}
 
-      <div className="fixed top-0 left-0 w-full h-16 bg-gray-800 px-2 md:px-24 xl:px-32 z-50">
+      <div className="fixed top-0 left-0 w-full h-16 bg-[#11110e] px-2 md:px-24 xl:px-32 z-50">
         <div className="h-full flex justify-between items-center">
           <h6 className="text-white text-xl font-bold">Image Brand</h6>
 
           <button
             onClick={() => setOpenMenu((prevState) => !prevState)}
             className="md:hidden text-white"
+            aria-expanded={openMenu}
+            aria-controls="navbar"
           >
             {openMenu ? (
               <HiMiniXMark className="h-8 w-8" />
@@ -29,36 +32,23 @@ const Navigation = () => {
           </button>
 
           <nav
-            className={`${
+            id="navbar"
+            className={`fixed top-16 md:top-0 right-0 w-3/5 h-screen bg-[#11110e] flex flex-col items-center gap-3 p-4 transform transition-transform duration-300 ease-in-out ${
               openMenu
-                ? "absolute top-16 right-0 w-3/5 md:w-auto h-screen z-30 bg-gray-800 text-white flex flex-col items-center gap-3 p-4 rounded-tl-md rounded-bl-md"
-                : "hidden"
-            } md:flex md:flex-row md:items-center md:gap-5 md:w-auto md:h-auto md:bg-transparent md:relative`}
+                ? "translate-x-0 opacity-100 z-30"
+                : "translate-x-full opacity-0 -z-10"
+            } md:relative md:flex md:flex-row md:items-center md:gap-2 md:w-auto md:h-auto md:bg-transparent md:opacity-100 md:translate-x-0 md:z-auto`}
           >
-            <Link
-              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-              to={`/home`}
-            >
-              Home
-            </Link>
-            <Link
-              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-              to={`/project`}
-            >
-              Projects
-            </Link>
-            <Link
-              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-              to={`/blogs`}
-            >
-              Blogs
-            </Link>
-            <Link
-              className="px-4 py-2 md:px-none w-full border-b sm:border-none rounded-md hover:rounded-md hover:text-[#202018] hover:bg-[#d2b960] text-white text-center"
-              to={`/contacts`}
-            >
-              Contact
-            </Link>
+            {routesName.map((name) => (
+              <Link
+                key={name}
+                onClick={() => setOpenMenu(false)}
+                className="px-4 py-2 w-full rounded-md  text-white hover:text-yellow-600 hover:bg-[#3731] text-start transition-colors duration-300"
+                to={`/${name}`}
+              >
+                {name}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>
