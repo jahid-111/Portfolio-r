@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import PageIntro from "./PageIntro";
-import useData from "../hooks/useData";
+import data from "../data";
 
 const image =
   "https://media.dev.to/cdn-cgi/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwhh1lpihw7h587pb2iuc.png";
 const ProjectCard = () => {
-  // const arr = ["index", "one", "two", "Three"];
-  const data = useData();
-  // console.log("data", data?.data?.projects);
+  // console.log(data);
   return (
     <div className=" px-4 mb-20">
       <PageIntro />
@@ -16,25 +14,25 @@ const ProjectCard = () => {
       <div className=" my-14  md:px-0">
         <SearchInput />
       </div>
-
+      <h5 className=" text-2xl my-4">Total Project : {data.projects.length}</h5>
       <div className="grid sm:grid-cols-2 gap-7 mx-auto justify-center items-center">
-        {data?.data?.projects?.map((project) => (
+        {data?.projects?.map((project, i) => (
           <div
-            key={project.id}
+            key={i}
             className="max-w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
-            <a href="#">
+            <Link to="#">
               <img className="rounded-t-lg  w-full h-full" src={image} alt="" />
-            </a>
+            </Link>
 
             <div className=" p-2">
               <div className=" my-2 flex justify-between items-baseline border-b pb-4">
                 <div>
-                  <a href="#">
+                  <Link to="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       {project?.title}
                     </h5>
-                  </a>
+                  </Link>
 
                   <div className="  w-full ">
                     {project?.technologies?.map((technology, index) => (
@@ -52,7 +50,12 @@ const ProjectCard = () => {
                 </div>
                 <div>
                   {" "}
-                  <a href="#" className="">
+                  <a
+                    href={project.liveLink}
+                    className=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <svg
                       className=" h-8 w-8"
                       xmlns="http://www.w3.org/2000/svg"
