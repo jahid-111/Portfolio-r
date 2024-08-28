@@ -51,3 +51,8 @@ a {
   background-color: #f4c430;
   color: #111111;
 }
+
+/* styles.css or in a <style> block */
+.shadow-left {
+  box-shadow: -10px 0 15px -5px rgba(0, 0, 0, 0.3);
+}

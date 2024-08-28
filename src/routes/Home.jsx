@@ -1,7 +1,8 @@
 import AboutMe from "../components/AboutMe";
 import IntroCard from "../components/IntroCard";
-import Reval from "../components/reval/Reval";
+import Reval from "../components/animation/Reval";
 import SkillOn from "../components/SkillOn";
+import Expertise from "../components/Expertise";
 
 const Home = () => {
   return (
@@ -14,6 +15,9 @@ const Home = () => {
       </Reval>
       <Reval>
         <SkillOn />
+      </Reval>
+      <Reval slide={true} delay={0.4}>
+        <Expertise />
       </Reval>
     </div>
   );
