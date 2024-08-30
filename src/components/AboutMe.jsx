@@ -1,8 +1,15 @@
+import { FaBolt } from "react-icons/fa";
+
 const AboutMe = () => {
   return (
-    <div className=" flex  flex-col py-4 px-1 justify-around items-center gap-5 md:flex-row mx-auto">
+    <div className=" flex  flex-col py-4  my-10 px-1 justify-around items-center gap-5 md:flex-row mx-auto">
       <div className="w-full md:w-6/12">
-        <h4 className=" text-3xl font-semibold">⚡ About Me</h4>
+        <h4 className=" text-3xl font-semibold flex justify-start items-center gap-2">
+          <span>
+            <FaBolt className=" text-yellow-400" />
+          </span>
+          <span>About Me</span>
+        </h4>
         <div className=" text-justify leading-relaxed tracking-tighter ">
           <p className=" my-3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,

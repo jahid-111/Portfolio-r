@@ -1,9 +1,10 @@
 import LinkContact from "./LinkContact";
+import { FaReact } from "react-icons/fa";
 const IntroCard = () => {
   return (
-    <div className="relative flex flex-col items-start p-2">
+    <div className="relative flex flex-col  my-16  items-start p-2">
       {/* Background image */}
-      <div className="absolute top-0 -left-10 inset-0 z-0">
+      <div className="absolute top-0 -left-10 inset-0 z-0 h-44 w-44">
         <img
           src="https://svgsilh.com/svg/26432.svg"
           alt="Background SVG"
@@ -16,7 +17,7 @@ const IntroCard = () => {
           {"Hey there!, I'm-"}
         </h3>
         <h4 className=" mb-2 text-5xl xl:text-[6rem] text-wrap font-semibold">
-          Mohd. Jahidul Islam
+          Mohd. Jahidul Islam.
         </h4>
         <h4 className="text-xl my-5 tracking-tight  md:text-[1.7rem] leading-relaxed">
           <span className="font-semibold">Frontend Developer. </span>
@@ -27,11 +28,16 @@ const IntroCard = () => {
           </span>
         </h4>
         <div className=" my-6 text-sm md:text-xl">
-          <p>🚀 Currently specializing in Frontend (React)</p>
+          <p className=" flex items-center justify-start gap-2">
+            <span>
+              <FaReact className="text-[#61DAFB]" />
+            </span>
+            <span> Currently specializing in Frontend (React)</span>
+          </p>
           {/* <p>🚀 Frontend Engineer at GGL </p> */}
         </div>
       </div>
-      <LinkContact></LinkContact>
+      <LinkContact />
     </div>
   );
 };

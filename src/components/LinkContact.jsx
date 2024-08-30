@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const LinkContact = () => {
   return (
     <div>
-      <div className="my-5 flex flex-wrap justify-start items-center gap-2">
+      <div className="my-5 flex flex-wrap justify-start items-center gap-2 md:gap-4">
         <Link
           target="_blank"
           className=" button-primary color  rounded-md py-2 px-4 flex justify-start items-center"
