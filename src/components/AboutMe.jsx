@@ -10,21 +10,20 @@ const AboutMe = () => {
           </span>
           <span>About Me</span>
         </h4>
-        <div className=" text-justify leading-relaxed tracking-tighter ">
-          <p className=" my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-            eveniet ipsum excepturi ea nihil repellendus possimus. Odio
-            praesentium.
+        <div className="text-justify leading-relaxed ">
+          <p className="my-3">
+            As a passionate junior developer with a strong foundation in React,
+            I specialize in crafting dynamic and responsive front-end solutions.
+            My journey into web development has been fueled by a deep interest
+            in creating intuitive user experiences and leveraging the latest
+            technologies.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam non
-            aut excepturi ea, doloribus eum, fugiat accusamus nisi, aliquid odit
-            exercitationem. Ipsum minimaem ipsum dolor sit amet consectetur
-            adipisicing elit. Ipsam non aut excepturi ea, doloribus eum, fugiat
-            exercitationem. Ipsum minimaem ipsum dolor sit amet consectetur
-            adipisicing elit. Ipsam non aut excepturi ea, doloribus eum, fugiat
-            accusamus nisi, aliquid odit exercitationem. Ipsum minima dicta
-            eveniet laborum eum.
+            I thrive on learning and growing, consistently refining my skills to
+            stay ahead in the fast-paced tech world. My expertise in React,
+            along with my understanding of modern web development practices,
+            enables me to build engaging applications and contribute effectively
+            to team projects.
           </p>
         </div>
       </div>

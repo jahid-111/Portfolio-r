@@ -31,7 +31,7 @@ const Reval = ({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay }}
+        transition={{ duration: 0.6, delay }}
       >
         {children}
       </motion.div>
