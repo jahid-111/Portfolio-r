@@ -1,5 +1,5 @@
 import { FaBolt } from "react-icons/fa";
-
+import me from "../assets/image/meDP.png";
 const AboutMe = () => {
   return (
     <div className=" flex  flex-col py-4  my-10 px-1 justify-around items-center gap-5 md:flex-row mx-auto">
@@ -10,7 +10,7 @@ const AboutMe = () => {
           </span>
           <span>About Me</span>
         </h4>
-        <div className="text-justify leading-relaxed ">
+        <div className="text-justify text-yellow-50 leading-relaxed tracking-tighter text-[1rem]">
           <p className="my-3">
             As a passionate junior developer with a strong foundation in React,
             I specialize in crafting dynamic and responsive front-end solutions.
@@ -29,11 +29,7 @@ const AboutMe = () => {
       </div>
 
       <div className="w-full flex items-center justify-center md:w-6/12">
-        <img
-          className="  h-80 w-80 rounded-full"
-          src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
-          alt=""
-        />
+        <img className="  h-80 w-80 rounded-full" src={me} alt="" />
       </div>
     </div>
   );

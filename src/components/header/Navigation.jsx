@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiMiniXMark } from "react-icons/hi2";
 import { IoReorderThree } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -40,14 +40,20 @@ const Navigation = () => {
             } md:relative md:flex md:flex-row md:items-center md:gap-2 md:w-auto md:h-auto md:bg-transparent md:opacity-100 md:translate-x-0 md:z-auto`}
           >
             {routesName.map((name) => (
-              <Link
+              <NavLink
                 key={name}
                 onClick={() => setOpenMenu(false)}
-                className="px-4 py-2 w-full rounded-md  text-white hover:text-yellow-600 hover:bg-[#3731] text-start transition-colors duration-300"
+                className={({ isActive }) =>
+                  `px-4 py-2 w-full rounded-md text-white text-start transition-colors duration-300 ${
+                    isActive
+                      ? "text-yellow-600 bg-[#3731]"
+                      : "hover:text-yellow-600 hover:bg-[#3731]"
+                  }`
+                }
                 to={`/${name}`}
               >
                 {name}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>

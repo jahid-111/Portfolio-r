@@ -27,8 +27,8 @@ const Footer = () => {
       <div className="text-center my-10 ">
         <p className="mb-2">Designed and Developed by Mohd. Jahidul Islam</p>
 
-        <div className="mb-2 flex justify-center items-center">
-          <p>Built With-</p>
+        <div className="mb-2 flex justify-center items-center gap-1">
+          <p>Built With</p>
           <span className="font-semibold text-[#f4dc85]">ReactJS.</span>
           <p>
             Hosted on{" "}

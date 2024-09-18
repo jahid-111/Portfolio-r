@@ -13,7 +13,7 @@ const IntroCard = () => {
       </div>
 
       <div className="relative z-10 text-white">
-        <h3 className=" text-2xl my-2 md:text-[2rem] font-semibold">
+        <h3 className=" text-2xl my-2 md:text-[2rem] indent-5 font-semibold">
           {"Hey there!, I'm-"}
         </h3>
         <h4 className=" mb-2 text-5xl xl:text-[6rem] text-wrap font-semibold">

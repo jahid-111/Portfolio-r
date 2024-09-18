@@ -22,7 +22,7 @@ const ProjectCard = () => {
       <div className="grid sm:grid-cols-2 gap-7 mx-auto justify-center items-center">
         {data?.projects?.map((project, i) => (
           <Reval key={i}>
-            <div className="max-w-full border border-gray-200 rounded-lg shadow  bg-[#6d725111] dark:border-gray-700">
+            <div className="max-w-full border border-gray-200 rounded-lg shadow  bg-[#6d725111] ">
               <Link
                 target="_blank"
                 to={project?.liveLink}
