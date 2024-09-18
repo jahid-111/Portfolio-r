@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { HiMiniXMark } from "react-icons/hi2";
 import { IoReorderThree } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+import Brand from "../../assets/svg/brand.svg";
 
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -16,7 +18,10 @@ const Navigation = () => {
 
       <div className="fixed top-0 left-0 w-full h-16  bg-[#11110e] shadow-md shadow-[#232526] px-2 md:px-24 xl:px-32 z-50">
         <div className="h-full flex justify-between items-center">
-          <h6 className="text-white text-xl font-bold">Image Brand</h6>
+          <Link to={"/"} className=" flex justify-center items-center gap-2">
+            <img height={50} width={50} src={Brand} alt="" />
+            <h6 className="text-[#d4a82f] text-xl font-bold">0-𝓭𝓮𝓿</h6>
+          </Link>
 
           <button
             onClick={() => setOpenMenu((prevState) => !prevState)}
