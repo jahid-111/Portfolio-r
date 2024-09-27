@@ -1,3 +1,4 @@
+import NextSvg from "../assets/svg/nextJs.svg";
 import LinkContact from "./LinkContact";
 import { FaReact } from "react-icons/fa";
 const IntroCard = () => {
@@ -34,7 +35,12 @@ const IntroCard = () => {
             </span>
             <span> Currently specializing in Frontend (React)</span>
           </p>
-          {/* <p>🚀 Frontend Engineer at GGL </p> */}
+          <p className=" flex items-center justify-start gap-2">
+            <span>
+              <img src={NextSvg} height={24} width={24} alt="" />
+            </span>
+            <span>Focusing on Next.js</span>
+          </p>
         </div>
       </div>
       <LinkContact />
