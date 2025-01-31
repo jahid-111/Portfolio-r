@@ -4,7 +4,7 @@ import Footer from "./components/footer/Footer";
 
 const Layout = () => {
   return (
-    <div>
+    <div className=" border w-full mx-auto">
       <Navigation />
 
       <Outlet />

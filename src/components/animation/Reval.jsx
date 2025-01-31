@@ -2,12 +2,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-const Reval = ({
-  children,
-  width = "fit-content",
-  slide = false,
-  delay = 0,
-}) => {
+const Reval = ({ children, width = "", slide = false, delay = 0 }) => {
   const ref = useRef(null);
   const isView = useInView(ref);
   const mainControls = useAnimation();

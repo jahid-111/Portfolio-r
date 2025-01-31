@@ -6,7 +6,7 @@ import Expertise from "../components/Expertise";
 
 const Home = () => {
   return (
-    <div className=" px-4  mt-28  ">
+    <div className="flex flex-col justify-center border px-2 mx-auto ">
       <Reval>
         <IntroCard />
       </Reval>
