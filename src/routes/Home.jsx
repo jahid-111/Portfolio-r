@@ -6,7 +6,7 @@ import Expertise from "../components/Expertise";
 
 const Home = () => {
   return (
-    <div className="flex flex-col justify-center border px-2 mx-auto ">
+    <div className="flex flex-col justify-center  px-2 mx-auto ">
       <Reval>
         <IntroCard />
       </Reval>
@@ -19,6 +19,7 @@ const Home = () => {
       <Reval slide={true} delay={0.4}>
         <Expertise />
       </Reval>
+      <hr className="border-0 h-px bg-slate-800" />
     </div>
   );
 };

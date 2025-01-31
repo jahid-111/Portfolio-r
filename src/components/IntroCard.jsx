@@ -3,7 +3,7 @@ import LinkContact from "./LinkContact";
 import { FaReact } from "react-icons/fa";
 const IntroCard = () => {
   return (
-    <div className="relative w-full flex flex-col  my-16  items-start mx-auto">
+    <div className="relative w-full flex flex-col  mb-16  items-start mx-auto mt-32">
       {/* Background image */}
       <div className="absolute top-0 -left-10 inset-0 z-0 h-44 w-44">
         <img
