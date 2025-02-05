@@ -4,6 +4,7 @@ import Project from "./routes/Project";
 import Contact from "./routes/Contact";
 import Layout from "./Layout";
 import Blog from "./routes/Blog";
+import NotFound from "./components/utilsComponents/Not-found";
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
         <Route index path="home" element={<Home></Home>} />
         <Route path="projects" element={<Project />} />
         <Route path="contacts" element={<Contact />} />
-        <Route path="blogs" element={<Blog />} />
+        <Route path="blogs/:id" element={<Blog />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

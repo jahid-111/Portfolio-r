@@ -43,12 +43,15 @@ const ProjectCard = () => {
 
                 <div className="flex flex-wrap gap-2 my-3">
                   {project.technologies?.map((tech, i) => (
-                    <span
+                    <Link
+                      to={`/blogs/${encodeURIComponent(
+                        tech.replace(/\s+/g, "-").toLowerCase()
+                      )}`} // Replace spaces with hyphens and encode
                       key={i}
-                      className="px-3 py-1 text-sm bg-[#50492f] color  rounded-md"
+                      className="px-3 py-1 text-sm bg-[#50492f] color text-white rounded-md"
                     >
                       {tech}
-                    </span>
+                    </Link>
                   ))}
                 </div>
 
