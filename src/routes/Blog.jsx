@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BlogImage from "../assets/svg/blog.svg"; // Assuming this image exists
 import Reval from "../components/animation/Reval"; // Assuming Reval is an animation component
 import { fetchedBlogData } from "../data/blog/blogData";
@@ -35,6 +35,14 @@ const BlogDetails = () => {
           dangerouslySetInnerHTML={{ __html: blogData.content }}
         ></div>
       </main>
+      <div className=" flex justify-end my-16">
+        <Link
+          to="/blogs"
+          className=" border rounded-md px-5 p-2 hover:bg-gray-800 hover:underline inset-5 underline-offset-4"
+        >
+          <span className=" text-gray-200">Get All blogs</span>
+        </Link>
+      </div>
     </div>
   );
 };
