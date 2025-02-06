@@ -1,118 +1,66 @@
-// import { useState } from "react";
-// import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-// import { Link } from "react-router-dom";
-
-// export default function BlogNavigation() {
-//   const [blogCategory, setBlogCategory] = useState(false);
-//   console.log(blogCategory);
-//   return (
-//     <div className=" w-full flex">
-//       {blogCategory && (
-//         <div className=" w-full flex flex-col">
-//           {[...Array(5)].map((_, i) => (
-//             <Link
-//               key={i}
-//               to={`/blogs/${i}`} // Dynamic link to the blog category page
-//               className="hover:underline text-white border py-2"
-//             >
-//               <span> Blog API- {i}</span>
-//             </Link>
-//           ))}
-//         </div>
-//       )}
-//       <div className=" absolute  right-0 top-16">
-//         <button onClick={() => setBlogCategory((prev) => !prev)}>
-//           {!blogCategory ? (
-//             <FaChevronCircleRight className=" h-8 w-8" />
-//           ) : (
-//             <FaChevronCircleLeft className=" h-8 w-8" />
-//           )}
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-import React, { useState } from "react";
-import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
+import { useState } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { MdArrowDropUp } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const SwipeNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [startX, setStartX] = useState(null);
-
-  const handleTouchStart = (e) => {
-    setStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e) => {
-    const endX = e.changedTouches[0].clientX;
-
-    if (startX !== null) {
-      const deltaX = endX - startX;
-
-      // Swipe left to right to open
-      if (deltaX > 50) {
-        setIsOpen(true);
-      }
-
-      // Swipe right to left to close
-      if (deltaX < -50) {
-        setIsOpen(false);
-      }
-    }
-
-    setStartX(null);
-  };
-
-  const toggleNav = () => {
-    setIsOpen((prev) => !prev);
-  };
+export default function BlogNavigation() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className="relative bg-gray-100 h-full"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      style={{ touchAction: "pan-y" }} // Prevent conflicts with vertical scrolling
-    >
-      <div
-        className={`fixed top-0 left-0 h-full bg-blue-600 text-white shadow-md transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-        style={{ width: "250px" }}
-      >
-        <div className="p-4">
-          <button onClick={toggleNav} className="text-xl mb-4">
-            <FaChevronCircleLeft />
-          </button>
+    <div>
+      {/* Menu Button */}
+      <div className="md:hidden mx-2 flex justify-start items-center border-b border-[#464232]">
+        <button
+          onClick={() => setOpen((prev) => !prev)}
+          className="px-2 focus:outline-none w-full"
+          aria-label="Toggle menu"
+        >
+          {!open ? (
+            <div className="flex justify-center items-center">
+              <IoMdArrowDropdown className="h-10 w-10" />
+              <p>More Blogs</p>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center">
+              <MdArrowDropUp className="h-10 w-10" />
+              <p>Collapse</p>
+            </div>
+          )}
+        </button>
+      </div>
+
+      {/* Dropdown Menu with Transition */}
+      {open && (
+        <div
+          className={`absolute top-10 left-2 right-2 px-2 flex flex-col bg-[#464232] z-10 rounded-b-lg shadow-lg transition-all duration-300 ease-in-out`}
+        >
+          {[...Array(5)].map((_, i) => (
+            <Link
+              onClick={() => setOpen(false)} // Close dropdown on link click
+              key={i}
+              to={`/blogs/${i}`}
+              className="text-white border-b border-gray-500 p-3 hover:bg-[#39372d] rounded-md"
+            >
+              Blog API-{i + 1}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Static Blog Links */}
+      <div className=" hidden md:block">
+        <div className="flex flex-col gap-1">
           {[...Array(5)].map((_, i) => (
             <Link
               key={i}
               to={`/blogs/${i}`}
-              className="block hover:underline py-2"
+              className="text-white border-gray-500 p-2 bg-[#464232] hover:bg-[#39372d] rounded-md"
             >
-              Blog API-{i}
+              Blog API-{i + 1}
             </Link>
           ))}
         </div>
       </div>
-
-      {/* Main content */}
-      <div className="h-full flex items-center justify-center">
-        {!isOpen && (
-          <button
-            onClick={toggleNav}
-            className="fixed left-4 top-1/2 transform -translate-y-1/2 text-blue-600 text-2xl"
-          >
-            <FaChevronCircleRight />
-          </button>
-        )}
-        <h1 className="text-center text-gray-700 text-xl">
-          Swipe or Click to Open the Navigation Menu
-        </h1>
-      </div>
     </div>
   );
-};
-
-export default SwipeNav;
+}
