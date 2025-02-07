@@ -10,7 +10,7 @@ const BlogLayout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="w-full md:w-10/12 p-4 bg-[#dfdeda] rounded-sm">
+      <div className="w-full md:w-10/12 p-4 bg-[#e1e1e1] text-white rounded-sm">
         <Outlet />
       </div>
     </div>

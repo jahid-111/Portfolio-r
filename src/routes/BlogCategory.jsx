@@ -1,51 +1,27 @@
 import { useState } from "react";
+import CodeSkeleton from "../components/blogComponents/CodeSkeleton";
 
 // Header Component
 const Header = ({ title, subtitle }) => (
-  <header className="text-center py-6 bg-gray-800 rounded-lg">
-    <h1 className="text-3xl font-bold">{title}</h1>
+  <header className="text-center px-2 py-6 bg-gray-800 rounded-lg">
+    <h1 className=" text-xl md:text-3xl font-bold">{title}</h1>
     <p className="mt-2 text-lg">{subtitle}</p>
   </header>
 );
 
 // Section Component
 const Section = ({ heading, content, children }) => (
-  <section className="my-8 p-4 bg-gray-100 rounded-lg shadow-md">
+  <section className="my-8 rounded-lg ">
     <h2 className="text-2xl font-semibold mb-4 text-blue-600">{heading}</h2>
     {content && <p className="text-gray-700 mb-4">{content}</p>}
     {children}
   </section>
 );
 
-// Code Example Component
-const CodeExample = ({ code }) => {
-  console.log("Rendering CodeExample component with the following code:");
-  console.log(code);
-
-  return (
-    <div className="relative my-3 pt-5 px-3 border-[1px] ">
-      <pre className="bg-gray-900 my-2 text-white p-4 rounded-md overflow-auto">
-        <code>{code}</code>
-        <div className="absolute right-2 top-0 border text-gray-700">
-          <button
-            className="mx-auto px-2"
-            onClick={() => {
-              console.log("Copy button clicked for the following code:");
-              console.log(code);
-            }}
-          >
-            copy
-          </button>
-        </div>
-      </pre>
-    </div>
-  );
-};
-
 // Blog Component
 const Blog = ({ blogData }) => {
   const { title, subtitle, sections } = blogData;
-  console.log(blogData);
+  // console.log(blogData);
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Blog Header */}
@@ -60,7 +36,7 @@ const Blog = ({ blogData }) => {
         >
           {section?.codeExamples &&
             section?.codeExamples.map((code, codeIndex) => (
-              <CodeExample key={codeIndex} code={code} />
+              <CodeSkeleton key={codeIndex} code={code} />
             ))}
           {section.listItems && (
             <ul className="list-disc ml-8 text-gray-700">
@@ -75,7 +51,7 @@ const Blog = ({ blogData }) => {
   );
 };
 
-const App = () => {
+const Blogs = () => {
   const [currentBlog, setCurrentBlog] = useState(0);
 
   const blogDataList = [
@@ -144,10 +120,10 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen  mb-4 xl:p-8">
       <Blog blogData={blogDataList[currentBlog]} />
     </div>
   );
 };
 
-export default App;
+export default Blogs;
