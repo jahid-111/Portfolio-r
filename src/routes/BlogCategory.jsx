@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CodeSkeleton from "../components/blogComponents/CodeSkeleton";
 import { blogData } from "../data/blog/blogData";
 import { useLocation } from "react-router-dom";

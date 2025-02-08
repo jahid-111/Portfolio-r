@@ -13,9 +13,7 @@ const Navigation = () => {
   return (
     <div className="relative">
       {/* Backdrop Blur Overlay */}
-      {openMenu && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
-      )}
+      {openMenu && <div className="fixed inset-0 backdrop-blur-sm z-40" />}
       <div className="fixed top-0 left-0 w-full h-16 bg-[#11110e] shadow-md shadow-[#232526] px-2 md:px-24 xl:px-32 z-50">
         <div className="h-full flex justify-between items-center">
           <Link to={"/"} className="flex justify-center items-center gap-2">
