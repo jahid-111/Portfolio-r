@@ -2,9 +2,13 @@ import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdArrowDropUp } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { blogData } from "../../data/blog/blogData";
 
 export default function BlogNavigation() {
   const [open, setOpen] = useState(false);
+
+  const nav = blogData;
+  // console.log(nav[0].category)
 
   return (
     <div>
@@ -50,13 +54,15 @@ export default function BlogNavigation() {
       {/* Static Blog Links */}
       <div className=" hidden md:block">
         <div className="flex flex-col gap-1">
-          {[...Array(5)].map((_, i) => (
+          {nav?.map((category) => (
             <Link
-              key={i}
-              to={`/blogs/${i}`}
+              key={category?.category}
+              to={`/blogs/${encodeURIComponent(
+                category.category.toLocaleLowerCase()
+              )}`}
               className="text-white border-gray-500 p-2 bg-[#464232] hover:bg-[#39372d] rounded-md"
             >
-              Blog API-{i + 1}
+              {category.category}
             </Link>
           ))}
         </div>

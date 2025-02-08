@@ -59,7 +59,7 @@ const Navigation = () => {
                         : "hover:text-yellow-600 hover:bg-[#3731]" // Inactive route hover styles
                     }`
                   }
-                  to={`/${name === "Home" ? "" : name}`} // Home routes to '/'
+                  to={`/${name === "Blogs" ? "blogs/javascript" : name}`} // Home routes to /blog/javascript
                 >
                   {name === "Home" ? "Home" : name}
                 </NavLink>

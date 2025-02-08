@@ -3,7 +3,6 @@ import Home from "./routes/Home";
 import Project from "./routes/Project";
 import Contact from "./routes/Contact";
 import Layout from "./Layout";
-import Blog from "./routes/Blog";
 import NotFound from "./components/utilsComponents/Not-found";
 import BlogCategory from "./routes/BlogCategory";
 import BlogLayout from "./BlogLayout";

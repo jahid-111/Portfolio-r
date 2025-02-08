@@ -41,7 +41,7 @@ const data = {
       title: "Weather",
       description:
         "A simple weather application built with Vanilla JavaScript and styled using Tailwind CSS. It fetches real-time weather data from an API and displays the current conditions, including temperature, and humidity for any location.",
-      technologies: ["Vanilla JS", "Tailwind Css", "API"],
+      technologies: ["JavaScript", "Tailwind Css", "API"],
       thumbnail: weather,
       liveLink: "https://weather-wheat-xi-28.vercel.app/",
     },
@@ -49,7 +49,7 @@ const data = {
       title: "Astro landing page",
       description:
         "AstroShip is a visually stunning, responsive website that offers a captivating user experience with space-themed designs. Built with modern web technologies, it showcases interactive elements and smooth animations, making it an ideal platform for exploring space-related content.",
-      technologies: ["Vanilla JS", "Tailwind Css"],
+      technologies: ["JavaScript", "Tailwind Css"],
       thumbnail: astroShipThumbnail,
       liveLink: "https://astroship-website-chi.vercel.app/",
     },
@@ -57,7 +57,7 @@ const data = {
       title: "Play Music",
       description:
         "An interactive music player where pressing different keys on the keyboard triggers various sounds. Built with Vanilla JavaScript and styled using Tailwind CSS, this project creates a fun and engaging way to play musical notes or beats directly from the keyboard.",
-      technologies: ["Vanilla JS", "Tailwind Css"],
+      technologies: ["JavaScript", "Tailwind Css"],
       thumbnail: music,
       liveLink: "https://drum-play.vercel.app/",
     },
@@ -65,7 +65,7 @@ const data = {
       title: "Food Kitchen",
       description:
         "A web application that helps users discover and explore various recipes. Built with Vanilla JavaScript and styled using BootStrap CSS, it features a user-friendly interface where users can search for recipes by ingredients, cuisine, or meal type, with detailed instructions and images.",
-      technologies: ["Vanilla JS", "BootStrap CSS"],
+      technologies: ["JavaScript", "BootStrap CSS"],
       thumbnail: foodKitchen,
       liveLink: "https://meal-db-one.vercel.app/",
     },
@@ -73,7 +73,7 @@ const data = {
       title: "Phone Search",
       description:
         "A web application designed to help users search for various phones and their specifications. Built with Vanilla JavaScript and styled using BootStrap CSS, this tool allows users to find detailed information about different phone models, including features, prices, and reviews.",
-      technologies: ["Vanilla JS", "BootStrap CSS", "Custom api"],
+      technologies: ["JavaScript", "BootStrap CSS", "Custom api"],
       thumbnail: phoneSearch,
       liveLink: "https://phone-market-ten.vercel.app/",
     },
@@ -89,7 +89,7 @@ const data = {
       title: "Smart Gadget",
       description:
         "An interactive functional web application designed to showcase and manage various smart gadgets and tech products. Built with Vanilla JavaScript and styled using BootStrap CSS, this site offers a user-friendly interface to explore product details, compare features, and stay updated with the latest tech trends.",
-      technologies: ["Vanilla JS", "BootStrap CSS"],
+      technologies: ["JavaScript", "BootStrap CSS"],
       thumbnail: smartGadget,
       liveLink: "https://smart-gadget-coral.vercel.app/",
     },

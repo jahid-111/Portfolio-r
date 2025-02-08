@@ -45,12 +45,12 @@ const ProjectCard = () => {
                   {project.technologies?.map((tech, i) => (
                     <Link
                       to={`/blogs/${encodeURIComponent(
-                        tech.replace(/\s+/g, "-").toLowerCase()
+                        tech.trim().toLowerCase().replace(/\s+/g, "-")
                       )}`} // Replace spaces with hyphens and encode
                       key={i}
-                      className="px-3 py-1 text-sm bg-[#50492f] color text-white rounded-md"
+                      className="px-3 py-1 text-sm bg-[#50492f] text-white rounded-md"
                     >
-                      {tech}
+                      {tech.trim()}
                     </Link>
                   ))}
                 </div>
