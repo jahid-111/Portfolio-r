@@ -21,14 +21,14 @@ const IntroCard = () => {
           Mohd. Jahidul Islam.
         </h4>
         <h4 className="text-xl my-5 tracking-tight  md:text-[1.7rem] leading-relaxed">
-          <span className="font-semibold">Frontend Developer. </span>
+          <span className="font-semibold"> MERN stack developer </span>
           <span className="text-gray-400">
             - A self-taught developer with an
             <br className="hidden md:inline" />
-            interest in Frontend Develope.
+            interest in MERN stack developer
           </span>
         </h4>
-        <div className=" my-6 text-sm md:text-xl">
+        {/* <div className=" my-6 text-sm md:text-xl">
           <p className=" flex items-center justify-start gap-2">
             <span>
               <FaReact className="text-[#61DAFB]" />
@@ -41,7 +41,7 @@ const IntroCard = () => {
             </span>
             <span>Focusing on Next.js</span>
           </p>
-        </div>
+        </div> */}
       </div>
       <LinkContact />
     </div>

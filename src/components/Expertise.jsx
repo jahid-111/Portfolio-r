@@ -17,6 +17,7 @@ import { TbApi, TbBrandNextjs } from "react-icons/tb";
 import { GrIntegration } from "react-icons/gr";
 import { SiTestcafe } from "react-icons/si";
 import { GiDiscussion } from "react-icons/gi";
+import Reval from "./animation/Reval";
 
 const services = [
   {
@@ -39,7 +40,7 @@ const services = [
   {
     name: "Database Connection with MongoDB",
     description: "Seamless integration and management of MongoDB databases.",
-    icon: <FaDatabase className="text-green-600" />,
+    icon: <FaDatabase className="text-yellow-600" />,
   },
   {
     name: "Custom Website Development",
@@ -125,18 +126,17 @@ const Expertise = () => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-5  rounded-t-md ">
         <div className="w-full p-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-start relative">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="h-32 w-full flex flex-col shadow-md shadow-neutral-500 rounded-md p-2 justify-start items-start mb-4 relative z-10 hover:bg-[#11110e] cursor-pointer hover:duration-300 hover:ease-linear"
-            >
-              <div className="flex items-center gap-2 text-xl">
-                <span className="text-2xl">{service.icon}</span>
-                <span className="font-semibold">{service.name}</span>
+            <Reval slide={true} key={index}>
+              <div className="h-32 w-full flex flex-col shadow-md shadow-neutral-500 rounded-md p-2 justify-start items-start mb-4 relative z-10 hover:bg-[#11110e] cursor-pointer hover:duration-300 hover:ease-linear">
+                <div className="flex items-center gap-2 text-xl">
+                  <span className="text-2xl">{service.icon}</span>
+                  <span className="font-semibold">{service.name}</span>
+                </div>
+                <p className="text-gray-400 text-sm ml-8 mt-2">
+                  {service.description}
+                </p>
               </div>
-              <p className="text-gray-400 text-sm ml-8 mt-2">
-                {service.description}
-              </p>
-            </div>
+            </Reval>
           ))}
 
           <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center z-0">

@@ -16,9 +16,9 @@ const Home = () => {
       <Reval>
         <SkillOn />
       </Reval>
-      <Reval slide={true} delay={0.4}>
-        <Expertise />
-      </Reval>
+
+      <Expertise />
+
       <hr className="border-0 h-px bg-slate-800" />
     </div>
   );
