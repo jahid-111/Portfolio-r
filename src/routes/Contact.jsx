@@ -1,9 +1,10 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
 
 const SendMail = () => {
   const [formData, setFormData] = useState({
-    to_name: "Support Team", // Default recipient name
+    to_name: "Client Requirement", // Default recipient name
     from_name: "",
     user_email: "",
     subject: "",
@@ -61,21 +62,6 @@ const SendMail = () => {
     setIsSubmitting(true);
     setStatus(null);
 
-    // Prepare EmailJS template parameters
-    // const templateParams = {
-    //   to_name: formData.to_name,
-    //   from_name: formData.from_name,
-    //   reply_to: formData.user_email, //op
-    //   subject: formData.subject,
-    //   location: formData.location,
-    //   company: formData.company,
-    //   message: `${formData.message}\n\nContact Details:\nEmail: ${
-    //     formData.user_email
-    //   }\nCompany: ${formData.company || "N/A"}\nLocation: ${
-    //     formData.location || "N/A"
-    //   }\nSubject: ${formData.subject || "N/A"}`,
-    // };
-
     const templateParams = {
       to_name: formData.to_name,
       from_name: formData.from_name,
@@ -103,17 +89,22 @@ const SendMail = () => {
         userId
       );
 
-      console.log("Email sent successfully!", response);
-      setStatus({ type: "success", message: "Email sent successfully!" });
-      setFormData({
-        to_name: "Portfolio",
-        from_name: "",
-        user_email: "",
-        subject: "",
-        location: "",
-        company: "",
-        message: "",
-      });
+      // console.log("Email sent successfully!", response);
+      if (response.status === 200) {
+        toast.success("Email sent successfully!");
+        setStatus({ type: "success", message: "Email sent successfully!" });
+        setFormData({
+          to_name: "0-𝓭𝓮𝓿 || Portfolio",
+          from_name: "",
+          user_email: "",
+          subject: "",
+          location: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send email. Please try again.");
+      }
     } catch (error) {
       console.error("Email sending error", error);
       setStatus({
@@ -126,18 +117,12 @@ const SendMail = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 min-h-screen">
-      <div className="bg-gray-800 text-gray-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">Contact Us</h1>
-        {status && (
-          <div
-            className={`mb-4 text-center text-sm ${
-              status.type === "success" ? "text-green-500" : "text-red-500"
-            }`}
-          >
-            {status.message}
-          </div>
-        )}
+    <div className="flex flex-col items-center my-7 justify-center min-h-screen">
+      <div className="bg-[#1d1d1b] shadow-[#585856] shadow-md text-gray-200 p-6 rounded-lg w-full max-w-xl">
+        <h1 className=" underline text-2xl text-gray-100 font-bold mb-4 text-center">
+          Contact Us
+        </h1>
+
         <form onSubmit={handleSendMail}>
           <div className="mb-4">
             <label
@@ -161,12 +146,12 @@ const SendMail = () => {
               htmlFor="user_email"
               className="block text-gray-400 font-medium mb-2"
             >
-              Your Email *
+              Your Email (Must valid) *
             </label>
             <input
               type="email"
               id="user_email"
-              placeholder="Enter your email"
+              placeholder="Enter your valid email"
               value={formData.user_email}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
@@ -238,9 +223,18 @@ const SendMail = () => {
               disabled={isSubmitting}
             ></textarea>
           </div>
+          {status && (
+            <div
+              className={`mb-4 text-center text-sm ${
+                status.type === "success" ? "text-green-500" : "text-red-500"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+            className="w-full button-primary font-bold py-2 px-4 rounded-lg transition"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
