@@ -18,97 +18,44 @@ import { GrIntegration } from "react-icons/gr";
 import { SiTestcafe } from "react-icons/si";
 import { GiDiscussion } from "react-icons/gi";
 import Reval from "./animation/Reval";
-
-const services = [
-  {
-    name: "React Apps",
-    description:
-      "Modern and scalable React applications with optimized performance.",
-    icon: <FaReact className="text-blue-500" />,
-  },
-  {
-    name: "NextJs Apps",
-    description:
-      "Server-side rendered (SSR) and static site generation (SSG) with Next.js.",
-    icon: <TbBrandNextjs className="text-gray-500" />,
-  },
-  {
-    name: "RestFull API",
-    description: "Secure and scalable RESTful API development.",
-    icon: <TbApi className="text-green-500" />,
-  },
-  {
-    name: "Database Connection with MongoDB",
-    description: "Seamless integration and management of MongoDB databases.",
-    icon: <FaDatabase className="text-yellow-600" />,
-  },
-  {
-    name: "Custom Website Development",
-    description:
-      "Tailor-made websites designed to meet specific business needs.",
-    icon: <FaLaptopCode className="text-purple-500" />,
-  },
-  {
-    name: "Reusable Components",
-    description:
-      "Reusable and modular UI components for scalable applications.",
-    icon: <FaCodeBranch className="text-teal-500" />,
-  },
-  {
-    name: "User Interface (UI) Design",
-    description:
-      "Intuitive and visually appealing UI for enhanced user experience.",
-    icon: <FaPaintBrush className="text-yellow-400" />,
-  },
-  {
-    name: "API Integration",
-    description:
-      "Seamless integration of third-party APIs for enhanced functionality.",
-    icon: <GrIntegration className="text-orange-500" />,
-  },
-  {
-    name: "Performance Boosting",
-    description: "Optimizing code and resources for better app performance.",
-    icon: <FaBolt className="text-blue-600" />,
-  },
-  {
-    name: "Testing",
-    description:
-      "Ensuring bug-free, high-quality applications with automated/manual testing.",
-    icon: <SiTestcafe className="text-green-500" />,
-  },
-  {
-    name: "Form Handling",
-    description:
-      "Efficient and secure form validation and submission handling.",
-    icon: <FaWpforms className="text-cyan-500" />,
-  },
-  {
-    name: "Consultation",
-    description: "Expert guidance and strategy for web development projects.",
-    icon: <GiDiscussion className="text-teal-500" />,
-  },
-  {
-    name: "State Management",
-    description:
-      "Efficient state handling using Context API, or TansTackquery.",
-    icon: <FaSyncAlt className="text-purple-500" />,
-  },
-  {
-    name: "Package Management",
-    description:
-      "Managing project dependencies with npm, yarn, and optimizations.",
-    icon: <FaGitAlt className="text-blue-500" />,
-  },
-  {
-    name: "Git Version Control",
-    description:
-      "Efficient code management with Git, GitHub, and versioning strategies.",
-    icon: <FaGitAlt className="text-yellow-500" />,
-  },
-];
+import { useEffect, useState } from "react";
 
 const Expertise = () => {
+  const [expertise, setExpertise] = useState([]);
+
+  // Icon mapping
+  const iconMapping = {
+    "React Apps": <FaReact className="text-blue-500" />,
+    "NextJs Apps": <TbBrandNextjs className="text-gray-500" />,
+    "RestFull API": <TbApi className="text-green-500" />,
+    "Database Connection with MongoDB": (
+      <FaDatabase className="text-yellow-600" />
+    ),
+    "Custom Website Development": <FaLaptopCode className="text-purple-500" />,
+    "Reusable Components": <FaCodeBranch className="text-teal-500" />,
+    "User Interface (UI) Design": <FaPaintBrush className="text-yellow-400" />,
+    "API Integration": <GrIntegration className="text-orange-500" />,
+    "Performance Boosting": <FaBolt className="text-blue-600" />,
+    Testing: <SiTestcafe className="text-green-500" />,
+    "Form Handling": <FaWpforms className="text-cyan-500" />,
+    Consultation: <GiDiscussion className="text-teal-500" />,
+    "State Management": <FaSyncAlt className="text-purple-500" />,
+    "Package Management": <FaGitAlt className="text-blue-500" />,
+    "Git Version Control": <FaGitAlt className="text-yellow-500" />,
+  };
+
+  // Fetch data from backend
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        import.meta.env.VITE_APP_PORTFOLIO_API_URL + "/expertise"
+      );
+      const data = await response.json();
+      setExpertise(data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="px-4 md:px-0 h-auto my-14 mb-14">
       <div className="left-2 md:left-0 relative flex flex-col md:items-center my-2 md:my-5">
@@ -125,15 +72,18 @@ const Expertise = () => {
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center gap-5  rounded-t-md ">
         <div className="w-full p-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-start relative">
-          {services.map((service, index) => (
-            <Reval slide={true} key={index}>
+          {expertise?.map((expertise) => (
+            <Reval slide={true} key={expertise._id}>
               <div className="h-32 w-full flex flex-col shadow-md shadow-neutral-500 rounded-md p-2 justify-start items-start mb-4 relative z-10 hover:bg-[#11110e] cursor-pointer hover:duration-300 hover:ease-linear">
                 <div className="flex items-center gap-2 text-xl">
-                  <span className="text-2xl">{service.icon}</span>
-                  <span className="font-semibold">{service.name}</span>
+                  <span className="text-2xl">
+                    {iconMapping[expertise.name]}{" "}
+                    {/* Dynamically render icon */}
+                  </span>
+                  <span className="font-semibold">{expertise.name}</span>
                 </div>
                 <p className="text-gray-400 text-sm ml-8 mt-2">
-                  {service.description}
+                  {expertise.description}
                 </p>
               </div>
             </Reval>
@@ -148,13 +98,15 @@ const Expertise = () => {
           </div>
         </div>
       </div>
-      <div className="w-full hidden md:flex justify-center items-center">
-        <img
-          className=" w-full max-w-full rounded-b-md shadow-lg"
-          src={servicesImage}
-          alt="Service-Image"
-        />
-      </div>
+      <Reval slide={true} delay={0.6}>
+        <div className="w-full hidden md:flex justify-center items-center">
+          <img
+            className=" w-full max-w-full rounded-b-md shadow-lg"
+            src={servicesImage}
+            alt="Service-Image"
+          />
+        </div>
+      </Reval>
     </div>
   );
 };
