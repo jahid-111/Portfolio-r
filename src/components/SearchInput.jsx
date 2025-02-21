@@ -1,15 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useDebounce from "./../hooks/useDebounce";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const SearchInput = () => {
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 500);
 
-  function handleSearchFrom(e) {
-    e.preventDefault();
+  const [query, setQuery] = useState([]);
+
+  function handleSearchInput(e) {
     setSearch(e.target.value);
   }
 
-  console.log(search);
+  useEffect(() => {
+    if (!debouncedSearch) {
+      setQuery([]);
+      return;
+    }
+
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_APP_PORTFOLIO_API_URL
+          }/search?q=${debouncedSearch}`
+        );
+        const data = await response.json();
+        setQuery(data);
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      }
+    }
+
+    fetchData();
+  }, [debouncedSearch]);
+
+  console.log(query.data);
   return (
     <div className="my-14 relative w-full md:w-6/12">
       {/* Input Field */}
@@ -17,7 +44,8 @@ const SearchInput = () => {
         className="h-10 w-full bg-[#464232] focus:border-white focus:outline-dotted rounded-md pl-4 pr-10 placeholder:text-white"
         type="text"
         placeholder="Search projects..."
-        onChange={(e) => handleSearchFrom(e)}
+        onChange={handleSearchInput}
+        value={search}
       />
 
       <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
@@ -34,22 +62,30 @@ const SearchInput = () => {
         </svg>
       </div>
 
-      {/* Conditional Bottom Component */}
+      {/* Search Results */}
       {search && (
         <div className="absolute bg-[#464232] z-50 my-2 rounded-sm w-full">
-          <div className=" flex flex-col gap-1 justify-center items-start w-full">
-            {[...Array(3)].map((_, index) => (
-              <Link
-                key={index}
-                className="border-b text-white border-gray-500 w-full p-3 rounded-sm hover:bg-[#39372d]"
-              >
-                <p>Project - {index + 1}</p>{" "}
-              </Link>
-            ))}
-            <p className=" text-red-400">
-              {" "}
-              🥲 This Search is Not Implement Yet
-            </p>
+          <div className="flex flex-col gap-1 justify-center items-start w-full">
+            {query?.data?.length > 0 ? (
+              query.data.map((item) => (
+                <Link
+                  target="_blank"
+                  key={item._id}
+                  to={item.liveLink}
+                  className="border-b text-white border-gray-500 w-full p-3 rounded-sm hover:bg-[#39372d]"
+                >
+                  <div className=" flex justify-between items-center">
+                    <p>{item.title}</p>
+                    <div className=" flex justify-center items-center gap-2">
+                      <p>𝙇𝙞𝙫𝙚</p>
+                      <FaExternalLinkAlt className="text-blue-500" />
+                    </div>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p className="text-red-400 p-3">🥲 No Results Found</p>
+            )}
           </div>
         </div>
       )}
