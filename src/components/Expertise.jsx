@@ -23,9 +23,7 @@ import { useEffect, useState } from "react";
 const Expertise = () => {
   const [expertise, setExpertise] = useState([]);
   const [loading, setLoading] = useState(true);
-  // console.log("Expertise data:", expertise === null ? "Loading..." : expertise);
-  // Icon mapping
-  console.log(loading);
+
   const iconMapping = {
     "React Apps": <FaReact className="text-blue-500" />,
     "NextJs Apps": <TbBrandNextjs className="text-gray-500" />,

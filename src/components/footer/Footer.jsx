@@ -24,17 +24,35 @@ const Footer = () => {
         <LinkContact />
       </div>
 
-      <div className="text-center my-10 ">
-        <p className="mb-2">Designed and Developed by Mohd. Jahidul Islam</p>
-
-        <div className="mb-2 flex justify-center items-center gap-1">
-          <p>Built With</p>
-          <span className="font-semibold text-[#f4dc85]">ReactJS.</span>
-          <p>
-            Hosted on{" "}
-            <span className="text-[#f4dc85] font-semibold">Vercel</span>.
-          </p>
+      <div className="text-center text-sm py-2">
+        <div className="md:flex justify-between gap-10 items-center ">
+          <div className=" my-2 flex justify-center items-center gap-1">
+            <p> Frontend Built With</p>
+            <span className="font-semibold text-[#f4dc85]">ReactJS.</span>
+            <p>
+              Hosted on{" "}
+              <span className="text-[#f4dc85] font-semibold">Vercel</span>.
+            </p>
+          </div>
+          <div className=" my-2 flex justify-center items-center gap-1">
+            <p> Backend Built With</p>
+            <span className="font-semibold text-[#f4dc85]">NodeJs Express</span>
+            <p>
+              Hosted on{" "}
+              <span className="text-[#f4dc85] font-semibold">Render</span>.
+            </p>
+          </div>
         </div>
+        <div className=" ">
+          {" "}
+          <p className="">Designed and Developed by Mohd. Jahidul Islam</p>
+        </div>
+      </div>
+
+      <div className="bg-gray-000 mb-3">
+        <p className="text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} Mohd. Jahidul Islam. All rights reserved.
+        </p>
       </div>
     </footer>
   );
