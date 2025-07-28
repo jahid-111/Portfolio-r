@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import Modal from "../Modal";
+import DynamicForm from "../../Dtest";
 
 export default function BlogAdmin() {
   const [blogs, setBlogs] = useState([]);
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,6 +20,10 @@ export default function BlogAdmin() {
     fetchData();
   }, []);
   // console.log(blogs);
+
+  function handleModal() {
+    setIsOpen(!isOpen);
+  }
   return (
     <section className="p-4">
       <h2 className="text-xl bg-[#050505] rounded-md py-4 font-bold text-center mb-4">
@@ -25,9 +31,19 @@ export default function BlogAdmin() {
       </h2>
       <div className=" flex items-center justify-between my-4">
         <p className=" font-semibold"> Total Blog : {blogs.length}</p>
-        <button className="py-2  px-5 bg-green-500 text-white rounded hover:bg-blue-600 transition">
-          Add blog
+        <button
+          className="py-2 px-5 bg-green-500 text-white rounded hover:bg-blue-600 transition"
+          onClick={handleModal}
+        >
+          Add Project
         </button>
+
+
+        <Modal isOpen={isOpen} onClose={handleModal}>
+        {/* <h2 className="text-lg font-bold mb-4">Add New Expertise</h2> */}
+        {/* Add your form for adding expertise here */}
+        <DynamicForm keyProps={blogs} />
+      </Modal>
       </div>
       {blogs.length === 0 ? (
         <p className="text-center text-gray-500">No blogs found!</p>

@@ -56,3 +56,29 @@ a {
 .shadow-left {
   box-shadow: -10px 0 15px -5px rgba(0, 0, 0, 0.3);
 }
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 22px;
+  background: radial-gradient(circle closest-side, #352a2a 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: l24 1.7s infinite alternate linear;
+}
+.loader::before {
+  content: "Loading Expertise...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #5d5858);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l24 {
+  100% {
+    background-position: left;
+  }
+}

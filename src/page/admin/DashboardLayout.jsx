@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import SideData from "../../components/dashboard/SideData";
-
 export default function DashboardLayout() {
   return (
     <div className=" mt-8 relative">
@@ -15,6 +14,7 @@ export default function DashboardLayout() {
 
         <main className="w-3/4 h-screen overflow-hidden  rounded-md bg-[#2d2d27] relative">
           <Outlet />
+          <div id="modal-content"></div>
         </main>
       </div>
     </div>
