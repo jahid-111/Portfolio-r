@@ -1,4 +1,6 @@
 import weather from "../assets/image/weather_image.png";
+import twitter from "../assets/image/Twitter_new_X_logo.png";
+import twitterAPI from "../assets/image/twitter-api.jpg";
 import astroShipThumbnail from "../assets/image/astro_web.jpg";
 import music from "../assets/image/music.jpg";
 import foodKitchen from "../assets/image/food_kitchen.jpg";
@@ -37,6 +39,22 @@ const data = {
     },
   ],
   projects: [
+    {
+      title: "X (Twitter)",
+      description:
+        "A full-stack Twitter-like social media app built with the MERN stack (MongoDB, Express.js, React.js, Node.js) and styled using Tailwind CSS. Users can post tweets, delete them, like tweets, follow other users, and manage their profiles — mimicking core features of Twitter.",
+      technologies: ["JavaScript", "ReactJs", "Tailwind CSS", "MongoDB", "Express", "Node.js"],
+      thumbnail: twitter,
+      liveLink: "https://x-tweet-ten.vercel.app",
+    },
+    {
+      title: "API - X (Twitter)",
+      description:
+        "A RESTful API for a Twitter-like social media application, built with Node.js and Express.js. It provides endpoints for creating, reading, updating, and deleting tweets, managing user profiles, and handling interactions such as following users and liking tweets.",
+      technologies: ["JavaScript", "MongoDB", "Express", "Node.js"],
+      thumbnail: twitterAPI,
+      liveLink: "https://github.com/jahid-111/x-tter_api",
+    },
     {
       title: "Weather",
       description:
